@@ -26,6 +26,8 @@ This repository will be used to practice:
 - Jenkins
 - Amazon EC2
 - Amazon Linux 2023
+- Shell Scripting
+- SSH
 
 ---
 

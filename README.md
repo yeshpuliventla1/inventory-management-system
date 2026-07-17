@@ -23,7 +23,7 @@ This repository will be used to practice:
 - Apache Maven
 - Git
 - GitHub
-- Jenkins
+- Jenkins 2.555 LTS
 - Amazon EC2
 - Amazon Linux 2023
 - Shell Scripting

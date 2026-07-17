@@ -24,6 +24,7 @@ This repository will be used to practice:
 - Git
 - GitHub
 - Jenkins
+- SonarQube
 - Amazon EC2
 - Amazon Linux 2023
 

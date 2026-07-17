@@ -27,6 +27,8 @@ This repository will be used to practice:
 - SonarQube
 - Amazon EC2
 - Amazon Linux 2023
+- Shell Scripting
+- SSH
 
 ---
 

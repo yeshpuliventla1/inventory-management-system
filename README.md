@@ -25,6 +25,7 @@ This repository will be used to practice:
 - GitHub
 - Jenkins Latest Stable
 - SonarQube
+- Jenkins 2.555 LTS
 - Amazon EC2
 - Amazon Linux 2023
 - Shell Scripting

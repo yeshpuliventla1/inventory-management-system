@@ -23,7 +23,7 @@ This repository will be used to practice:
 - Apache Maven
 - Git
 - GitHub
-- Jenkins
+- Jenkins Latest Stable
 - SonarQube
 - Amazon EC2
 - Amazon Linux 2023

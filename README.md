@@ -1,94 +1,50 @@
 # Inventory Management System
 
-## Project Overview
+A Spring Boot application used as a continuous DevOps learning project.
 
-The Inventory Management System is a Java Maven application developed to demonstrate an end-to-end DevOps CI/CD workflow.
+## Current features
 
-This repository will be used to practice:
+- Product management REST API
+- In-memory product storage
+- Validation
+- Unit tests
+- Maven build
+- JaCoCo coverage
+- Jenkins pipeline
 
-- Linux Administration
-- Git & GitHub
-- Maven
-- Jenkins Pipelines
-- Shell Scripting
-- Automated Deployment
-- Docker (Upcoming)
-- Kubernetes (Upcoming)
+## Build locally
 
----
-
-## Technology Stack
-
-- Java 21
-- Apache Maven
-- Git
-- GitHub
-- Jenkins Latest Stable
-- SonarQube
-- Jenkins 2.555 LTS
-- Amazon EC2
-- Amazon Linux 2023
-- Shell Scripting
-- SSH
-
----
-
-## Project Structure
-
-```
-inventory-management-system/
-│
-├── src/
-├── docs/
-├── scripts/
-├── deployment/
-├── config/
-├── Jenkinsfile
-├── pom.xml
-├── README.md
-└── .gitignore
+```bash
+mvn clean test
+mvn clean package
 ```
 
----
+## Run
 
-## CI/CD Pipeline (Planned)
+```bash
+java -jar target/inventory-management-system-1.0.0.jar
+```
 
-Developer
+The application starts on port 8080.
 
-↓
+## API
 
-GitHub
+- `GET /api/products`
+- `GET /api/products/{id}`
+- `POST /api/products`
+- `PUT /api/products/{id}`
+- `DELETE /api/products/{id}`
 
-↓
+Example POST body:
 
-Jenkins
+```json
+{
+  "name": "Laptop",
+  "category": "Electronics",
+  "quantity": 10,
+  "price": 75000.00
+}
+```
 
-↓
-
-Maven Build
-
-↓
-
-Testing
-
-↓
-
-Package
-
-↓
-
-Deployment
-
----
-
-## Current Sprint
-
-Sprint 1
-
-Repository Initialization and Documentation
-
----
-
-## Author
-
-Yeshwanth Puliventla
+This project will be extended through the DevOps learning path:
+Git -> Maven -> Jenkins -> SonarQube -> Nexus -> Docker -> Kubernetes -> AWS.

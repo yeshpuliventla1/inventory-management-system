@@ -76,7 +76,6 @@ pipeline {
     }
 
     post {
-
         success {
             echo 'Inventory Management CI Pipeline completed successfully!'
         }
@@ -90,4 +89,3 @@ pipeline {
         }
     }
 }
-```

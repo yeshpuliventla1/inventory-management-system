@@ -1,10 +1,28 @@
+```groovy
 pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                checkout scm
+                git(
+                    url: 'git@github.com:yeshpuliventla1/inventory-management-system.git',
+                    credentialsId: 'github-ssh',
+                    branch: 'main'
+                )
+            }
+        }
+
+        stage('Environment Check') {
+            steps {
+                sh '''
+                    whoami
+                    hostname
+                    pwd
+                    java -version
+                    mvn -version
+                '''
             }
         }
 
@@ -20,6 +38,30 @@ pipeline {
             }
         }
 
+        stage('Code Coverage') {
+            steps {
+                recordCoverage(
+                    tools: [[
+                        parser: 'JACOCO',
+                        pattern: 'target/site/jacoco/jacoco.xml'
+                    ]]
+                )
+            }
+        }
+
+        stage('Publish Test Results') {
+            steps {
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
+
+        stage('JaCoCo Coverage') {
+            steps {
+                archiveArtifacts artifacts: 'target/site/jacoco/**',
+                                 fingerprint: true
+            }
+        }
+
         stage('Package') {
             steps {
                 sh 'mvn package -DskipTests'
@@ -28,20 +70,25 @@ pipeline {
 
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: 'target/*.jar',
+                                 fingerprint: true
             }
         }
     }
 
     post {
-        always {
-            echo 'CI pipeline completed.'
-        }
+
         success {
-            echo 'Inventory Management System build succeeded.'
+            echo 'Inventory Management CI Pipeline completed successfully!'
         }
+
         failure {
-            echo 'Inventory Management System build failed.'
+            echo 'Inventory Management CI Pipeline FAILED!'
+        }
+
+        always {
+            echo 'Pipeline execution completed.'
         }
     }
 }
+```

@@ -13,6 +13,22 @@ pipeline {
             }
         }
 
+        stage('Credentials Demo') {
+            steps {
+                withCredentials([
+                    string(
+                        credentialsId: 'inventory-demo-secret',
+                        variable: 'DEMO_SECRET'
+                    )
+                ]) {
+                    sh '''
+                        echo "Secret is available to Jenkins"
+                        echo "Secret length: ${#DEMO_SECRET}"
+                    '''
+                }
+            }
+        }
+
         stage('Environment Check') {
             steps {
                 sh '''
